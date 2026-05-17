@@ -77,7 +77,6 @@
         }
     </style>
 </head>
-<!-- Menambahkan class 'font-sans' pada body agar seluruh text default otomatis mengadopsi Plus Jakarta Sans -->
 <body class="font-sans bg-[#0b0f19] text-slate-100 overflow-x-hidden antialiased">
 
     <!-- Top Navigation Bar -->
@@ -102,15 +101,15 @@
 
             <!-- Interactivity Area (Language & Theme Mode Switcher) -->
             <div class="flex items-center space-x-3">
-                <!-- Theme Mode Selectors -->
+                <!-- Theme Mode Selectors (Updated to brand custom names) -->
                 <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/60 shadow-inner">
                     <button onclick="changeTheme('male')" id="theme-btn-male" class="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 bg-sky-600 text-white shadow-sm">
-                        <i class="fas fa-mars"></i>
-                        <span>COWO</span>
+                        <i class="fas fa-palette"></i>
+                        <span>TEMA FAIZ</span>
                     </button>
                     <button onclick="changeTheme('female')" id="theme-btn-female" class="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 text-slate-400 hover:text-slate-200">
-                        <i class="fas fa-venus"></i>
-                        <span>CEWE</span>
+                        <i class="fas fa-palette"></i>
+                        <span>TEMA RANI</span>
                     </button>
                 </div>
 
@@ -175,7 +174,6 @@
                 <!-- Faiz Profile Card -->
                 <div class="group relative overflow-hidden rounded-3xl bg-slate-800/40 p-8 border border-slate-800/80 transition duration-300 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-sky-500/5 flex flex-col justify-between">
                     <div>
-                        <div class="absolute top-4 right-4 text-slate-800/60 text-5xl font-sport italic select-none">COWOK</div>
                         <!-- Picture Container -->
                         <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-sky-950 to-slate-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
@@ -190,7 +188,7 @@
                         <p class="text-slate-400 mb-6 italic text-sm" data-key="faizQuote">"Fokus mengasah teknik presisi, ketahanan fisik maksimal, dan mental pemenang di setiap turnamen."</p>
                         
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="bg-sky-950 text-sky-400 border border-sky-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">BOYS' SINGLES & DOUBLES</span>
+                            <span class="bg-sky-950 text-sky-400 border border-sky-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">BOYS' SINGLES SPECIALIST</span>
                             <span class="bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">EXIST CLUB ATHLETE</span>
                         </div>
                     </div>
@@ -204,23 +202,22 @@
                 <!-- Rani Profile Card -->
                 <div class="group relative overflow-hidden rounded-3xl bg-slate-800/40 p-8 border border-slate-800/80 transition duration-300 hover:border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/5 flex flex-col justify-between">
                     <div>
-                        <div class="absolute top-4 right-4 text-slate-800/60 text-5xl font-sport italic select-none">CEWEK</div>
                         <!-- Picture Container -->
                         <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-pink-950 to-slate-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
                             <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-32 h-32 rounded-full border-4 border-pink-400 overflow-hidden shadow-xl mb-3 bg-slate-800 flex items-center justify-center">
+                                <div class="w-32 h-32 rounded-full border-4 border-pink-400 overflow-hidden shadow-xl mb-3 bg-slate-800 flex items-center justify-center border-pink-500/50">
                                     <i class="fas fa-user-circle text-8xl text-pink-200 animate-pulse"></i>
                                 </div>
-                                <span class="bg-pink-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">JUNIOR PLAYER</span>
+                                <span class="bg-pink-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">EXIST BADMINTON CLUB</span>
                             </div>
                         </div>
-                        <h3 class="text-3xl font-sport mb-2 tracking-wide text-pink-400">Maharani Faizah Iskandar (Rani)</h3>
+                        <h3 class="text-3xl font-sport mb-2 tracking-wide text-pink-400">Maharani Faizah Iskandar</h3>
                         <p class="text-slate-400 mb-6 italic text-sm" data-key="raniQuote">"Kecepatan penempatan shuttlecock dan kelincahan bertahan adalah kunci mengontrol laga."</p>
                         
                         <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="bg-pink-950 text-pink-400 border border-pink-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">SPEED & DEFENSE SPECIALIST</span>
-                            <span class="bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">RIGHT HANDED</span>
+                            <span class="bg-pink-950 text-pink-400 border border-pink-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">GIRLS' SINGLES SPECIALIST</span>
+                            <span class="bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">EXIST CLUB ATHLETE</span>
                         </div>
                     </div>
                     
@@ -244,13 +241,13 @@
                     CV resmi yang bersumber langsung dari data terverifikasi. Pilih tab di bawah untuk melihat rekam jejak prestasi, detail fisik, latihan, dan kualifikasi turnamen.
                 </p>
                 
-                <!-- Selector Tabs -->
+                <!-- Selector Tabs (Updated to remove "Cowok" and "Cewek" labels) -->
                 <div class="flex flex-wrap justify-center mt-8 gap-3">
                     <button id="tab-btn-faiz" onclick="switchCVTab('faiz')" class="px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-sky-500/50 bg-sky-600 text-white shadow-lg shadow-sky-500/20">
-                        <i class="fas fa-mars mr-2"></i>CV Faiz (Cowok)
+                        <i class="fas fa-user mr-2"></i>CV Faiz
                     </button>
                     <button id="tab-btn-rani" onclick="switchCVTab('rani')" class="px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-slate-700 text-slate-400 hover:text-white hover:border-pink-500/50">
-                        <i class="fas fa-venus mr-2"></i>CV Rani (Cewek)
+                        <i class="fas fa-user mr-2"></i>CV Rani
                     </button>
                 </div>
             </div>
@@ -260,9 +257,9 @@
                 <!-- Top Header Band -->
                 <div id="cv-header-band" class="text-white p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-sky-700 to-sky-900">
                     <div class="text-center md:text-left">
-                        <span id="cv-badge" class="bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full" data-key="cvCat">KATEGORI ATLET: TUNGGAL & GANDA</span>
+                        <span id="cv-badge" class="bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full" data-key="cvCat">KATEGORI ATLET: TUNGGAL</span>
                         <h2 id="cv-display-fullname" class="text-4xl md:text-5xl font-sport mt-3 tracking-wide">MUHAMMAD FAIZ ISKANDAR</h2>
-                        <p id="cv-display-role" class="text-sm opacity-90 font-semibold italic mt-1 text-sky-200">Badminton Athlete / Tunggal & Ganda Putra</p>
+                        <p id="cv-display-role" class="text-sm opacity-90 font-semibold italic mt-1 text-sky-200">Badminton Athlete / Tunggal Putra</p>
                     </div>
                 </div>
 
@@ -463,7 +460,7 @@
                 sectionCVSub: "OFFICIAL JUNIOR ATHLETE CV",
                 sectionCVTitle: "RESUME INTERAKTIF ATLET",
                 sectionCVDesc: "CV resmi yang bersumber langsung dari data terverifikasi. Pilih tab di bawah untuk melihat rekam jejak prestasi, detail fisik, latihan, dan kualifikasi turnamen.",
-                cvCat: "KATEGORI ATLET: TUNGGAL & GANDA",
+                cvCat: "KATEGORI ATLET: TUNGGAL",
                 cvDataDiri: "DATA DIRI",
                 cvTtl: "Tempat, Tgl Lahir:",
                 cvUmur: "Umur:",
@@ -505,7 +502,7 @@
                 sectionCVSub: "OFFICIAL JUNIOR ATHLETE CV",
                 sectionCVTitle: "ATHLETE INTERACTIVE RESUME",
                 sectionCVDesc: "Official CV sourced directly from verified data. Select the tabs below to view achievements, physical details, training, and tournament qualifications.",
-                cvCat: "ATHLETE CATEGORY: SINGLES & DOUBLES",
+                cvCat: "ATHLETE CATEGORY: SINGLES",
                 cvDataDiri: "PERSONAL DATA",
                 cvTtl: "Place, Date of Birth:",
                 cvUmur: "Age:",
@@ -533,7 +530,7 @@
             faiz: {
                 id: {
                     fullname: "MUHAMMAD FAIZ ISKANDAR",
-                    role: "Atlet Bulutangkis / Tunggal & Ganda Putra",
+                    role: "Atlet Bulutangkis / Tunggal Putra",
                     profileDesc: "Seorang atlet bulutangkis junior yang berdedikasi dengan semangat juang tinggi dalam latihan dan kompetisi. Berpengalaman dalam turnamen tingkat provinsi dan nasional, dengan fokus peningkatan keterampilan teknis, ketahanan fisik, dan mental pemenang.",
                     birth: "Depok, 13 Februari 2012",
                     age: "14 Tahun",
@@ -569,7 +566,7 @@
                 },
                 en: {
                     fullname: "MUHAMMAD FAIZ ISKANDAR",
-                    role: "Badminton Athlete / Boys' Singles & Doubles",
+                    role: "Badminton Athlete / Boys' Singles",
                     profileDesc: "A dedicated junior badminton athlete with strong passion for training and competition. Experienced in participating in province and national level tournaments, with a focus on improving technical skills, physical endurance, and competitive mindset.",
                     birth: "Depok, February 13, 2012",
                     age: "14 Years Old",
@@ -607,8 +604,8 @@
             rani: {
                 id: {
                     fullname: "MAHARANI FAIZAH ISKANDAR",
-                    role: "Atlet Bulutangkis / Ganda Campuran & Tunggal Putri",
-                    profileDesc: "Atlet bulutangkis putri junior berbakat yang berspesialisasi dalam teknik netting presisi tinggi, kecepatan penempatan bola, dan pemulihan pertahanan yang gesit. Kombinasi ketangkasan kaki dan kesadaran taktis lapangan yang mumpuni.",
+                    role: "Atlet Bulutangkis / Tunggal Putri",
+                    profileDesc: "Atlet bulutangkis putri junior berbakat yang berspesialisasi dalam permainan tunggal dengan teknik netting presisi tinggi, kecepatan penempatan bola, dan pemulihan pertahanan yang gesit. Kombinasi ketangkasan kaki dan kesadaran taktis lapangan yang mumpuni.",
                     birth: "Depok, 13 Februari 2012",
                     age: "14 Tahun",
                     nation: "Indonesia",
@@ -637,8 +634,8 @@
                 },
                 en: {
                     fullname: "MAHARANI FAIZAH ISKANDAR",
-                    role: "Badminton Athlete / Mixed Doubles & Girls' Singles",
-                    profileDesc: "A passionate junior female badminton athlete specializing in netting, speed of interception, and defensive recovery. Fast footwork combined with tactical awareness developed through competitive regional match setups.",
+                    role: "Badminton Athlete / Girls' Singles",
+                    profileDesc: "A passionate junior female badminton athlete specializing in singles with netting, speed of interception, and defensive recovery. Fast footwork combined with tactical awareness developed through competitive regional match setups.",
                     birth: "Depok, February 13, 2012",
                     age: "14 Years Old",
                     nation: "Indonesia",
