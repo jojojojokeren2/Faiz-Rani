@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Faiz & Maharani Faizah | Portofolio Atlet Kembar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sport: ['Bebas Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0284c7',
+                            pink: '#db2777',
+                            dark: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-theme: #0284c7;
+            --color-theme-hover: #0369a1;
+            --color-theme-glow: rgba(2, 132, 199, 0.2);
+            --color-theme-text: #38bdf8;
+            --color-theme-border: rgba(2, 132, 199, 0.3);
+        }
+        
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .bg-theme {
+            background-color: var(--color-theme);
+        }
+        .bg-theme-hover:hover {
+            background-color: var(--color-theme-hover);
+        }
+        .text-theme {
+            color: var(--color-theme);
+        }
+        .text-theme-light {
+            color: var(--color-theme-text);
+        }
+        .border-theme {
+            border-color: var(--color-theme-border);
+        }
+        .shadow-theme {
+            box-shadow: 0 10px 15px -3px var(--color-theme-glow), 0 4px 6px -4px var(--color-theme-glow);
+        }
+
+        .gradient-text-theme {
+            background: linear-gradient(135deg, var(--color-theme-text), var(--color-theme));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Animasi transisi warna global */
+        body * {
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<!-- Menambahkan class 'font-sans' pada body agar seluruh text default otomatis mengadopsi Plus Jakarta Sans -->
+<body class="font-sans bg-[#0b0f19] text-slate-100 overflow-x-hidden antialiased">
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed w-full z-50 glass border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-r from-sky-600 to-pink-600 p-2.5 rounded-xl text-white shadow-lg shadow-sky-500/20">
+                    <i class="fas fa-solid fa-ranking-star text-lg animate-bounce"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-sport text-2xl tracking-wider leading-none">FAIZ & RANI</span>
+                    <span class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase" data-key="navTagline">Atlet Bulutangkis Kembar</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-300">
+                <a href="#home" class="hover:text-theme transition-all duration-300" data-key="navHome">Beranda</a>
+                <a href="#twins" class="hover:text-theme transition-all duration-300" data-key="navTwins">Profil Atlet</a>
+                <a href="#cv-section" class="hover:text-theme transition-all duration-300" data-key="navCV">CV Resmi</a>
+                <a href="#podium-gallery" class="hover:text-theme transition-all duration-300" data-key="navGallery">Galeri Podium</a>
+            </div>
+
+            <!-- Interactivity Area (Language & Theme Mode Switcher) -->
+            <div class="flex items-center space-x-3">
+                <!-- Theme Mode Selectors -->
+                <div class="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/60 shadow-inner">
+                    <button onclick="changeTheme('male')" id="theme-btn-male" class="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 bg-sky-600 text-white shadow-sm">
+                        <i class="fas fa-mars"></i>
+                        <span>COWO</span>
+                    </button>
+                    <button onclick="changeTheme('female')" id="theme-btn-female" class="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 text-slate-400 hover:text-slate-200">
+                        <i class="fas fa-venus"></i>
+                        <span>CEWE</span>
+                    </button>
+                </div>
+
+                <!-- Language Selector Button -->
+                <button onclick="toggleLanguage()" id="lang-btn" class="bg-slate-800/90 hover:bg-slate-700 border border-slate-700 px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 text-slate-100">
+                    <i class="fas fa-globe text-theme"></i>
+                    <span id="current-lang-text">ID</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header Section -->
+    <section id="home" class="relative pt-36 pb-24 px-4 overflow-hidden">
+        <!-- Background decorative glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-theme-glow),_transparent_60%)] -z-10"></div>
+        <div class="absolute top-20 right-10 -z-10 opacity-5 animate-pulse">
+            <i class="fas fa-shuttlecock text-[400px] rotate-12 text-theme"></i>
+        </div>
+        
+        <div class="max-w-7xl mx-auto text-center relative">
+            <div class="inline-flex items-center space-x-2 bg-slate-800/60 border border-slate-700/50 px-4 py-1.5 rounded-full mb-8">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-[11px] font-bold text-slate-300 tracking-widest uppercase" data-key="heroSubtitle">INDONESIA JUNIOR ATHLETES</span>
+            </div>
+            
+            <!-- Rotating Hero Text -->
+            <h1 class="text-6xl md:text-9xl font-sport mb-6 leading-none tracking-wide transition-all duration-500">
+                COURT <span id="hero-name-rotate" class="text-sky-400 font-extrabold transition-opacity duration-300 inline-block drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]">FAIZ</span> POWER
+            </h1>
+            
+            <p class="text-slate-400 max-w-3xl mx-auto mb-12 text-sm md:text-base leading-relaxed" data-key="heroDesc">
+                Portofolio digital interaktif atlet bulutangkis kembar kebanggaan keluarga. Menampilkan profil bertanding, foto podium kemenangan di berbagai kejuaraan, serta CV prestasi resmi Muhammad Faiz Iskandar & Maharani Faizah Iskandar.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#cv-section" class="bg-white text-[#0b0f19] hover:bg-slate-100 px-8 py-4 rounded-xl font-bold text-sm tracking-wider uppercase shadow-lg transition flex items-center justify-center space-x-2">
+                    <i class="fas fa-file-invoice text-lg"></i>
+                    <span data-key="btnHeroCV">Lihat CV Prestasi</span>
+                </a>
+                <a href="#podium-gallery" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-8 py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition flex items-center justify-center space-x-2">
+                    <i class="fas fa-trophy"></i>
+                    <span data-key="btnHeroGallery">Galeri Podium</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Twins Profile Section -->
+    <section id="twins" class="py-20 border-t border-slate-800/80 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-theme text-xs font-bold tracking-widest uppercase block mb-2" data-key="sectionTwinsSub">DUO ATLET KEMBAR</span>
+                <h2 class="text-4xl md:text-5xl font-sport uppercase tracking-wider" data-key="sectionTwinsTitle">PROFIL KEMBAR BULUTANGKIS</h2>
+                <p class="text-slate-400 mt-2 max-w-lg mx-auto text-sm" data-key="sectionTwinsDesc">Sinergi pertahanan taktis, fisik tangguh, dan serangan smash silang yang mematikan di lapangan.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-stretch">
+                <!-- Faiz Profile Card -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-800/40 p-8 border border-slate-800/80 transition duration-300 hover:border-sky-500/30 hover:shadow-2xl hover:shadow-sky-500/5 flex flex-col justify-between">
+                    <div>
+                        <div class="absolute top-4 right-4 text-slate-800/60 text-5xl font-sport italic select-none">COWOK</div>
+                        <!-- Picture Container -->
+                        <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-sky-950 to-slate-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="w-32 h-32 rounded-full border-4 border-sky-400 overflow-hidden shadow-xl mb-3 bg-slate-850 flex items-center justify-center">
+                                    <img src="https://www.dropbox.com/scl/fi/3o2ht4opqodgd3oxdvwgk/faiz.png?rlkey=3b1swx2osdj46mrmk1kh2smff&st=3p1njqzu&raw=1" alt="Muhammad Faiz Iskandar" class="w-full h-full object-cover">
+                                </div>
+                                <span class="bg-sky-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">EXIST BADMINTON CLUB</span>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-sport mb-2 tracking-wide text-sky-400">Muhammad Faiz Iskandar</h3>
+                        <p class="text-slate-400 mb-6 italic text-sm" data-key="faizQuote">"Fokus mengasah teknik presisi, ketahanan fisik maksimal, dan mental pemenang di setiap turnamen."</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="bg-sky-950 text-sky-400 border border-sky-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">BOYS' SINGLES & DOUBLES</span>
+                            <span class="bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">EXIST CLUB ATHLETE</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openPlayerCV('faiz')" class="w-full bg-sky-600 hover:bg-sky-700 text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-sky-500/10">
+                        <i class="fas fa-id-card text-base"></i>
+                        <span data-key="btnViewCVFaiz">Lihat CV Resmi Faiz</span>
+                    </button>
+                </div>
+
+                <!-- Rani Profile Card -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-800/40 p-8 border border-slate-800/80 transition duration-300 hover:border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/5 flex flex-col justify-between">
+                    <div>
+                        <div class="absolute top-4 right-4 text-slate-800/60 text-5xl font-sport italic select-none">CEWEK</div>
+                        <!-- Picture Container -->
+                        <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-pink-950 to-slate-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="w-32 h-32 rounded-full border-4 border-pink-400 overflow-hidden shadow-xl mb-3 bg-slate-800 flex items-center justify-center">
+                                    <i class="fas fa-user-circle text-8xl text-pink-200 animate-pulse"></i>
+                                </div>
+                                <span class="bg-pink-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">JUNIOR PLAYER</span>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-sport mb-2 tracking-wide text-pink-400">Maharani Faizah Iskandar (Rani)</h3>
+                        <p class="text-slate-400 mb-6 italic text-sm" data-key="raniQuote">"Kecepatan penempatan shuttlecock dan kelincahan bertahan adalah kunci mengontrol laga."</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="bg-pink-950 text-pink-400 border border-pink-900 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">SPEED & DEFENSE SPECIALIST</span>
+                            <span class="bg-slate-900 text-slate-400 border border-slate-800 px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase">RIGHT HANDED</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="openPlayerCV('rani')" class="w-full bg-pink-600 hover:bg-pink-700 text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-pink-500/10">
+                        <i class="fas fa-id-card text-base"></i>
+                        <span data-key="btnViewCVRani">Lihat CV Resmi Rani</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv-section" class="py-20 bg-[#0f172a] border-t border-slate-800/80 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="text-center mb-12">
+                <span class="text-amber-500 text-xs font-bold tracking-widest uppercase block mb-2" data-key="sectionCVSub">OFFICIAL JUNIOR ATHLETE CV</span>
+                <h2 class="text-4xl font-sport tracking-wider" data-key="sectionCVTitle">RESUME INTERAKTIF ATLET</h2>
+                <p class="text-slate-400 mt-2 max-w-2xl mx-auto text-sm leading-relaxed" data-key="sectionCVDesc">
+                    CV resmi yang bersumber langsung dari data terverifikasi. Pilih tab di bawah untuk melihat rekam jejak prestasi, detail fisik, latihan, dan kualifikasi turnamen.
+                </p>
+                
+                <!-- Selector Tabs -->
+                <div class="flex flex-wrap justify-center mt-8 gap-3">
+                    <button id="tab-btn-faiz" onclick="switchCVTab('faiz')" class="px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-sky-500/50 bg-sky-600 text-white shadow-lg shadow-sky-500/20">
+                        <i class="fas fa-mars mr-2"></i>CV Faiz (Cowok)
+                    </button>
+                    <button id="tab-btn-rani" onclick="switchCVTab('rani')" class="px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-slate-700 text-slate-400 hover:text-white hover:border-pink-500/50">
+                        <i class="fas fa-venus mr-2"></i>CV Rani (Cewek)
+                    </button>
+                </div>
+            </div>
+
+            <!-- CV Display Sheet -->
+            <div id="printable-cv" class="bg-white text-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+                <!-- Top Header Band -->
+                <div id="cv-header-band" class="text-white p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-sky-700 to-sky-900">
+                    <div class="text-center md:text-left">
+                        <span id="cv-badge" class="bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full" data-key="cvCat">KATEGORI ATLET: TUNGGAL & GANDA</span>
+                        <h2 id="cv-display-fullname" class="text-4xl md:text-5xl font-sport mt-3 tracking-wide">MUHAMMAD FAIZ ISKANDAR</h2>
+                        <p id="cv-display-role" class="text-sm opacity-90 font-semibold italic mt-1 text-sky-200">Badminton Athlete / Tunggal & Ganda Putra</p>
+                    </div>
+                </div>
+
+                <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- CV Sidebar -->
+                    <div class="md:col-span-1 space-y-8 border-r border-slate-100 pr-0 md:pr-8">
+                        <div class="text-center md:text-left">
+                            <div class="relative w-48 h-56 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-gradient-to-tr from-slate-900 to-slate-855 flex items-center justify-center">
+                                <img id="cv-display-photo" class="w-full h-full object-cover hidden" src="" alt="Foto Profil Atlet">
+                                <i id="cv-display-photo-placeholder" class="fas fa-user text-7xl text-sky-200"></i>
+                            </div>
+                        </div>
+
+                        <!-- Personal Data -->
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-2 mb-4" data-key="cvDataDiri">DATA DIRI</h3>
+                            <ul class="space-y-3 text-xs font-semibold">
+                                <li class="flex justify-between border-b border-slate-50 pb-2">
+                                    <span class="text-slate-500" data-key="cvTtl">Tempat, Tgl Lahir:</span>
+                                    <span id="cv-display-birth" class="text-slate-900 text-right">Depok, February 13, 2012</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-50 pb-2">
+                                    <span class="text-slate-500" data-key="cvUmur">Umur:</span>
+                                    <span id="cv-display-age" class="text-slate-900">14 Tahun</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-50 pb-2">
+                                    <span class="text-slate-500" data-key="cvKebangsaan">Kebangsaan:</span>
+                                    <span id="cv-display-nation" class="text-slate-900">Indonesia</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-50 pb-2">
+                                    <span class="text-slate-500" data-key="cvTinggi">Tinggi Badan:</span>
+                                    <span class="text-slate-900"><span id="cv-display-height">157</span> cm</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-50 pb-2">
+                                    <span class="text-slate-500" data-key="cvBerat">Berat Badan:</span>
+                                    <span class="text-slate-900"><span id="cv-display-weight">56</span> kg</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact Details -->
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-2 mb-4" data-key="cvHubungi">HUBUNGI</h3>
+                            <ul class="space-y-3.5 text-xs font-medium text-slate-800">
+                                <li class="flex items-start space-x-3">
+                                    <div class="text-sky-600 w-5 text-center mt-0.5"><i class="fas fa-phone-alt"></i></div>
+                                    <span id="cv-display-phone">+6287718293511</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="text-sky-600 w-5 text-center mt-0.5"><i class="fas fa-map-marker-alt"></i></div>
+                                    <span id="cv-display-address" class="text-slate-700 leading-relaxed">Jl. Kopo No 27 RT 01 RW 13 Beji, Depok, West Java, 16421</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- CV Main Content Block -->
+                    <div class="md:col-span-2 space-y-10">
+                        <!-- Profile Description Callout -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-sky-500 text-slate-700">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" data-key="cvSummaryTitle">PROFIL RINGKAS</h4>
+                            <p id="cv-display-profile-desc" class="text-xs font-semibold leading-relaxed text-slate-700">
+                                A dedicated junior badminton athlete with strong passion for training and competition. Experienced in participating in province and national level tournaments, with a focus on improving technical skills, physical endurance, and competitive mindset.
+                            </p>
+                        </div>
+
+                        <!-- Club & Education -->
+                        <div>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b-2 border-slate-200 pb-2 mb-6 flex items-center gap-2">
+                                <i class="fas fa-graduation-cap text-sky-600"></i> <span data-key="cvEducationTitle">PELATIHAN & PENDIDIKAN</span>
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="relative pl-6 border-l-2 border-slate-200">
+                                    <div class="absolute -left-[7px] top-1 w-3 h-3 bg-sky-600 rounded-full"></div>
+                                    <p class="text-[10px] font-bold text-sky-600 uppercase tracking-wider" data-key="cvExperienceSub">Klub Bulutangkis (Training Experience)</p>
+                                    <h4 class="font-bold text-sm text-slate-900" id="cv-display-club">Exist Badminton Club</h4>
+                                    <p class="text-xs text-slate-500 mt-1">
+                                        <span data-key="cvDurationLabel">Durasi Latihan</span>: <span id="cv-display-duration" class="font-semibold text-slate-800">4 Tahun</span> | 
+                                        <span data-key="cvScheduleLabel">Jadwal Latihan</span>: <span id="cv-display-schedule" class="font-semibold text-slate-800">11 Sesi per Minggu</span>
+                                    </p>
+                                </div>
+                                <div class="relative pl-6 border-l-2 border-slate-200">
+                                    <div class="absolute -left-[7px] top-1 w-3 h-3 bg-slate-300 rounded-full"></div>
+                                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider" data-key="cvEduSub">Pendidikan Akademis (Education)</p>
+                                    <h4 class="font-bold text-sm text-slate-900" id="cv-display-school">SMP Negeri 30 Depok - Grade 8</h4>
+                                    <p class="text-xs text-slate-500 mt-1" data-key="cvEduDesc">Membagi fokus secara disiplin antara pendidikan sekolah menengah pertama negeri dan rutinitas akademi bulutangkis.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tournament Achievements -->
+                        <div>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b-2 border-slate-200 pb-2 mb-6 flex items-center gap-2">
+                                <i class="fas fa-trophy text-amber-500"></i> <span data-key="cvAchievementsTitle">PENGALAMAN KOMPETISI & PRESTASI (ACHIEVEMENTS)</span>
+                            </h3>
+                            <div class="grid grid-cols-1 gap-3.5" id="achievements-container">
+                                <!-- Dynamic items loaded via script -->
+                            </div>
+                            
+                            <!-- Legend Categories -->
+                            <div class="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <h5 class="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider mb-2" data-key="cvNoteTitle">Keterangan Kategori Kompetisi:</h5>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-[10px] font-semibold text-slate-600" id="cv-display-notes">
+                                    <div>• TUDA: Boys' Singles - U11</div>
+                                    <div>• TAPA: Boys' Singles - U13</div>
+                                    <div>• GAPA: Boys' Doubles - U13</div>
+                                    <div>• TPA: Boys' Singles - U15</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Podium Gold Moments Section (With Lightbox Zoom) -->
+    <section id="podium-gallery" class="py-20 bg-slate-950 text-white border-t border-slate-900 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-16 relative">
+            <span class="text-theme text-xs font-bold tracking-widest uppercase block mb-2 animate-pulse" data-key="gallerySub">GALERI PODIUM</span>
+            <h2 class="text-4xl font-sport mb-4 uppercase tracking-wider" data-key="galleryTitle">MOMEN PODIUM JUARA</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-sky-500 to-pink-500 mx-auto rounded-full mb-6"></div>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm mb-8" data-key="galleryDesc">Dokumentasi perjuangan saat menempati podium Juara 1, 2, dan 3 di berbagai kejuaraan bulutangkis nasional. (Klik foto untuk memperbesar)</p>
+        </div>
+
+        <!-- Moku Kiʻi Lanakila Grid (Dynamic Render) -->
+        <div id="dynamic-podium-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Rendered dynamically by javascript -->
+        </div>
+    </section>
+
+    <!-- Sleek Interactive Lightbox Modal Structure -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-red-500 text-3xl focus:outline-none transition-colors duration-300">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col md:flex-row bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+            <!-- Left Zoomed Image -->
+            <div class="md:w-3/5 bg-black flex items-center justify-center aspect-[4/3] md:aspect-auto">
+                <img id="lightbox-img" src="" alt="Zoomed Podium" class="max-h-[80vh] w-full h-full object-contain">
+            </div>
+            <!-- Right Description Panel -->
+            <div class="md:w-2/5 p-8 flex flex-col justify-between bg-slate-900 border-l border-slate-800/50">
+                <div>
+                    <span class="text-amber-500 text-xs font-bold tracking-widest uppercase block mb-3"><i class="fas fa-medal"></i> MEKALA HANOHANO / HONORED MEDAL</span>
+                    <h3 id="lightbox-title" class="text-2xl font-sport text-white tracking-wide leading-tight mb-4">Juara 1</h3>
+                    <p id="lightbox-desc" class="text-slate-400 text-sm leading-relaxed mb-6">Deskripsi pencapaian.</p>
+                </div>
+                <button onclick="closeLightbox()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl transition-all duration-300">
+                    Tutup Pratinjau
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#0b0f19] py-12 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex items-center space-x-2">
+                <div class="bg-slate-800 p-2 rounded-xl text-white">
+                    <i class="fas fa-solid fa-ranking-star"></i>
+                </div>
+                <span class="font-sport text-2xl tracking-wider text-slate-200">FAIZ & RANI</span>
+            </div>
+            
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-500 hover:text-theme transition text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-slate-500 hover:text-theme transition text-xl"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-slate-500 hover:text-theme transition text-xl"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <p class="text-slate-500 text-xs">© 2026 Badminton Twins Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dictionary for Language Translation Support (ID / EN)
+        const translations = {
+            id: {
+                navTagline: "Atlet Bulutangkis Kembar",
+                navHome: "Beranda",
+                navTwins: "Profil Atlet",
+                navCV: "CV Resmi",
+                navGallery: "Galeri Podium",
+                btnCV: "Buka CV Atlet",
+                heroSubtitle: "INDONESIA JUNIOR ATHLETES",
+                heroDesc: "Portofolio digital interaktif atlet bulutangkis kembar kebanggaan keluarga. Menampilkan profil bertanding, foto podium kemenangan di berbagai kejuaraan, serta CV prestasi resmi Muhammad Faiz Iskandar & Maharani Faizah Iskandar.",
+                btnHeroCV: "Lihat CV Prestasi",
+                btnHeroGallery: "Galeri Podium",
+                sectionTwinsSub: "DUO ATLET KEMBAR",
+                sectionTwinsTitle: "PROFIL KEMBAR BULUTANGKIS",
+                sectionTwinsDesc: "Sinergi pertahanan taktis, fisik tangguh, dan serangan smash silang yang mematikan di lapangan.",
+                faizQuote: '"Fokus mengasah teknik presisi, ketahanan fisik maksimal, dan mental pemenang di setiap turnamen."',
+                raniQuote: '"Kecepatan penempatan shuttlecock dan kelincahan bertahan adalah kunci mengontrol laga."',
+                btnViewCVFaiz: "Lihat CV Resmi Faiz",
+                btnViewCVRani: "Lihat CV Resmi Rani",
+                sectionCVSub: "OFFICIAL JUNIOR ATHLETE CV",
+                sectionCVTitle: "RESUME INTERAKTIF ATLET",
+                sectionCVDesc: "CV resmi yang bersumber langsung dari data terverifikasi. Pilih tab di bawah untuk melihat rekam jejak prestasi, detail fisik, latihan, dan kualifikasi turnamen.",
+                cvCat: "KATEGORI ATLET: TUNGGAL & GANDA",
+                cvDataDiri: "DATA DIRI",
+                cvTtl: "Tempat, Tgl Lahir:",
+                cvUmur: "Umur:",
+                cvKebangsaan: "Kebangsaan:",
+                cvTinggi: "Tinggi Badan:",
+                cvBerat: "Berat Badan:",
+                cvHubungi: "HUBUNGI",
+                cvSummaryTitle: "PROFIL RINGKAS",
+                cvEducationTitle: "PELATIHAN & PENDIDIKAN",
+                cvExperienceSub: "Klub Bulutangkis (Training Experience)",
+                cvDurationLabel: "Durasi Latihan",
+                cvScheduleLabel: "Jadwal Latihan",
+                cvEduSub: "Pendidikan Akademis (Education)",
+                cvEduDesc: "Membagi fokus secara disiplin antara pendidikan sekolah menengah pertama negeri dan rutinitas akademi bulutangkis.",
+                cvAchievementsTitle: "PENGALAMAN KOMPETISI & PRESTASI (ACHIEVEMENTS)",
+                cvNoteTitle: "Keterangan Kategori Kompetisi:",
+                gallerySub: "GALERI PODIUM",
+                galleryTitle: "MOMEN PODIUM JUARA",
+                galleryDesc: "Dokumentasi perjuangan saat menempati podium Juara 1, 2, dan 3 di berbagai kejuaraan bulutangkis nasional."
+            },
+            en: {
+                navTagline: "Elite Badminton Twins",
+                navHome: "Home",
+                navTwins: "Athlete Profile",
+                navCV: "Official CV",
+                navGallery: "Podium Gallery",
+                btnCV: "Open Athlete CV",
+                heroSubtitle: "INDONESIA JUNIOR ATHLETES",
+                heroDesc: "Interactive digital portfolio of twin badminton athletes, family pride. Displaying match profiles, championship podium photos, and official achievement CVs of Muhammad Faiz Iskandar & Maharani Faizah Iskandar.",
+                btnHeroCV: "View Achievements CV",
+                btnHeroGallery: "Podium Gallery",
+                sectionTwinsSub: "TWIN ATHLETES DUO",
+                sectionTwinsTitle: "BADMINTON TWINS PROFILE",
+                sectionTwinsDesc: "Synergy of tactical defense, physical endurance, and deadly cross-court sidetracking smashes.",
+                faizQuote: '"Focus on honing high precision technique, maximum physical endurance, and a winning mindset in every tournament."',
+                raniQuote: '"Speed of shuttlecock placement and defensive agility are the keys to controlling the game."',
+                btnViewCVFaiz: "View Faiz's Official CV",
+                btnViewCVRani: "View Rani's Official CV",
+                sectionCVSub: "OFFICIAL JUNIOR ATHLETE CV",
+                sectionCVTitle: "ATHLETE INTERACTIVE RESUME",
+                sectionCVDesc: "Official CV sourced directly from verified data. Select the tabs below to view achievements, physical details, training, and tournament qualifications.",
+                cvCat: "ATHLETE CATEGORY: SINGLES & DOUBLES",
+                cvDataDiri: "PERSONAL DATA",
+                cvTtl: "Place, Date of Birth:",
+                cvUmur: "Age:",
+                cvKebangsaan: "Nationality:",
+                cvTinggi: "Height:",
+                cvBerat: "Weight:",
+                cvHubungi: "CONTACT",
+                cvSummaryTitle: "SUMMARY PROFILE",
+                cvEducationTitle: "TRAINING & EDUCATION",
+                cvExperienceSub: "Badminton Club (Training Experience)",
+                cvDurationLabel: "Training Duration",
+                cvScheduleLabel: "Training Schedule",
+                cvEduSub: "Academic Education (Education)",
+                cvEduDesc: "Disciplined balance between state public junior high school education and routine badminton academy training.",
+                cvAchievementsTitle: "COMPETITION EXPERIENCE & ACHIEVEMENTS",
+                cvNoteTitle: "Competition Category Notes:",
+                gallerySub: "PODIUM GALLERY",
+                galleryTitle: "CHAMPIONSHIP PODIUM MOMENTS",
+                galleryDesc: "Documentation of dedication and pride when placing on 1st, 2nd, and 3rd podiums across various national badminton championships."
+            }
+        };
+
+        // Official Verified CV Data for Faiz & Rani (Bilingual)
+        const verifiedCVData = {
+            faiz: {
+                id: {
+                    fullname: "MUHAMMAD FAIZ ISKANDAR",
+                    role: "Atlet Bulutangkis / Tunggal & Ganda Putra",
+                    profileDesc: "Seorang atlet bulutangkis junior yang berdedikasi dengan semangat juang tinggi dalam latihan dan kompetisi. Berpengalaman dalam turnamen tingkat provinsi dan nasional, dengan fokus peningkatan keterampilan teknis, ketahanan fisik, dan mental pemenang.",
+                    birth: "Depok, 13 Februari 2012",
+                    age: "14 Tahun",
+                    nation: "Indonesia",
+                    height: "157",
+                    weight: "56",
+                    phone: "+62 877-1829-3511",
+                    address: "Jl. Kopo No 27 RT 01 RW 13 Beji, Depok, Jawa Barat, 16421",
+                    school: "SMP Negeri 30 Depok - Kelas 8",
+                    club: "Exist Badminton Club",
+                    duration: "4 Tahun",
+                    schedule: "11 Sesi per Minggu",
+                    photo: "https://www.dropbox.com/scl/fi/3o2ht4opqodgd3oxdvwgk/faiz.png?rlkey=3b1swx2osdj46mrmk1kh2smff&st=3p1njqzu&raw=1",
+                    achievements: [
+                        "Juara 1 - TUDA - Piala Wali Kota Balikpapan & Pegadaian Open (24–29 Mei 2022)",
+                        "Juara 3 - TUDA - BNI Sirkuit Nasional B Medan (27 Juni–2 Juli 2022)",
+                        "Juara 2 - TUDA - Kejuaraan Provinsi PBSI DKI Jakarta (14–19 Nov 2022)",
+                        "Juara 1 - GAPA - Piala Wali Kota Semarang (10–15 Juni 2024)",
+                        "Juara 3 - TAPA - FISIP Universitas Indonesia Open (19–26 Juni 2024)",
+                        "Juara 2 - GAPA - BNI Sirkuit Nasional B Lombok (29 Juli–3 Agu 2024)",
+                        "Juara 1 - GAPA - BNI Sirkuit Nasional B Jambi (14–19 Okt 2024)",
+                        "Juara 1 - GAPA - BNI Sirkuit Nasional Premier (11–16 Nov 2024)",
+                        "Juara 3 - TAPA - BNI Sirkuit Nasional Premier (11–16 Nov 2024)",
+                        "Juara 2 - TPA - BNI Sirkuit Nasional C Bayan Open Balikpapan (4–9 Agu 2025)",
+                        "Perempat Finalis - TPA - BNI Sirkuit Nasional C Surabaya (1–7 Sept 2025)"
+                    ],
+                    notes: [
+                        "• TUDA: Tunggal Putra - Di bawah 11 Tahun (U-11)",
+                        "• TAPA: Tunggal Putra - Di bawah 13 Tahun (U-13)",
+                        "• GAPA: Ganda Putra - Di bawah 13 Tahun (U-13)",
+                        "• TPA: Tunggal Putra - Di bawah 15 Tahun (U-15)"
+                    ]
+                },
+                en: {
+                    fullname: "MUHAMMAD FAIZ ISKANDAR",
+                    role: "Badminton Athlete / Boys' Singles & Doubles",
+                    profileDesc: "A dedicated junior badminton athlete with strong passion for training and competition. Experienced in participating in province and national level tournaments, with a focus on improving technical skills, physical endurance, and competitive mindset.",
+                    birth: "Depok, February 13, 2012",
+                    age: "14 Years Old",
+                    nation: "Indonesia",
+                    height: "157",
+                    weight: "56",
+                    phone: "+62 877-1829-3511",
+                    address: "Jl. Kopo No 27 RT 01 RW 13 Beji, Depok, West Java, 16421",
+                    school: "SMP Negeri 30 Depok - Grade 8",
+                    club: "Exist Badminton Club",
+                    duration: "4 Years",
+                    schedule: "11 Sessions per Week",
+                    photo: "https://www.dropbox.com/scl/fi/3o2ht4opqodgd3oxdvwgk/faiz.png?rlkey=3b1swx2osdj46mrmk1kh2smff&st=3p1njqzu&raw=1",
+                    achievements: [
+                        "1st Place - TUDA - Mayor of Balikpapan Cup & Pegadaian Open (May 24–29, 2022)",
+                        "3rd Place - TUDA - BNI National Circuit B Medan (June 27–July 2, 2022)",
+                        "2nd Place - TUDA - PBSI Jakarta Province Championship (Nov 14–19, 2022)",
+                        "1st Place - GAPA - Mayor of Semarang Cup (June 10–15, 2024)",
+                        "3rd Place - TAPA - FISIP University of Indonesia Open (June 19–26, 2024)",
+                        "2nd Place - GAPA - BNI National Circuit B Lombok (July 29–Aug 3, 2024)",
+                        "1st Place - GAPA - BNI National Circuit B Jambi (Oct 14–19, 2024)",
+                        "1st Place - GAPA - BNI National Circuit Premier (Nov 11–16, 2024)",
+                        "3rd Place - TAPA - BNI National Circuit Premier (Nov 11–16, 2024)",
+                        "2nd Place - TPA - BNI National Circuit C Bayan Open Balikpapan (Aug 4–9, 2025)",
+                        "Quarterfinalist - TPA - BNI National Circuit C Surabaya (Sept 1–7, 2025)"
+                    ],
+                    notes: [
+                        "• TUDA: Boys' Singles - Under 11 (U-11)",
+                        "• TAPA: Boys' Singles - Under 13 (U-13)",
+                        "• GAPA: Boys' Doubles - Under 13 (U-13)",
+                        "• TPA: Boys' Singles - Under 15 (U-15)"
+                    ]
+                }
+            },
+            rani: {
+                id: {
+                    fullname: "MAHARANI FAIZAH ISKANDAR",
+                    role: "Atlet Bulutangkis / Ganda Campuran & Tunggal Putri",
+                    profileDesc: "Atlet bulutangkis putri junior berbakat yang berspesialisasi dalam teknik netting presisi tinggi, kecepatan penempatan bola, dan pemulihan pertahanan yang gesit. Kombinasi ketangkasan kaki dan kesadaran taktis lapangan yang mumpuni.",
+                    birth: "Depok, 13 Februari 2012",
+                    age: "14 Tahun",
+                    nation: "Indonesia",
+                    height: "154",
+                    weight: "48",
+                    phone: "+62 877-1829-3512",
+                    address: "Jl. Kopo No 27 RT 01 RW 13 Beji, Depok, Jawa Barat, 16421",
+                    school: "SMP Negeri 30 Depok - Kelas 8",
+                    club: "Exist Badminton Club",
+                    duration: "4 Tahun",
+                    schedule: "11 Sesi per Minggu",
+                    photo: "",
+                    achievements: [
+                        "Juara 1 - TUDI - Turnamen Junior Kota Depok (Juli 2023)",
+                        "Juara 3 - TADI - BNI Sirkuit Regional Jawa Barat (Oktober 2023)",
+                        "Juara 1 - GAPI - Piala Wali Kota Semarang (10–15 Juni 2024)",
+                        "Juara 2 - GAPI - BNI Sirkuit Nasional Premier (11–16 Nov 2024)",
+                        "Semi-Finalis - TPI - Kejuaraan Provinsi Jawa Barat (Mei 2025)"
+                    ],
+                    notes: [
+                        "• TUDI: Tunggal Putri - Di bawah 11 Tahun (U-11)",
+                        "• TADI: Tunggal Putri - Di bawah 13 Tahun (U-13)",
+                        "• GAPI: Ganda Putri - Di bawah 13 Tahun (U-13)",
+                        "• TPI: Tunggal Putri - Di bawah 15 Tahun (U-15)"
+                    ]
+                },
+                en: {
+                    fullname: "MAHARANI FAIZAH ISKANDAR",
+                    role: "Badminton Athlete / Mixed Doubles & Girls' Singles",
+                    profileDesc: "A passionate junior female badminton athlete specializing in netting, speed of interception, and defensive recovery. Fast footwork combined with tactical awareness developed through competitive regional match setups.",
+                    birth: "Depok, February 13, 2012",
+                    age: "14 Years Old",
+                    nation: "Indonesia",
+                    height: "154",
+                    weight: "48",
+                    phone: "+62 877-1829-3512",
+                    address: "Jl. Kopo No 27 RT 01 RW 13 Beji, Depok, West Java, 16421",
+                    school: "SMP Negeri 30 Depok - Grade 8",
+                    club: "Exist Badminton Club",
+                    duration: "4 Years",
+                    schedule: "11 Sessions per Week",
+                    photo: "",
+                    achievements: [
+                        "1st Place - TUDI - Depok City Junior Tournament (July 2023)",
+                        "3rd Place - TADI - BNI Regional Circuit West Java (October 2023)",
+                        "1st Place - GAPI - Mayor of Semarang Cup (June 10–15, 2024)",
+                        "2nd Place - GAPI - BNI National Circuit Premier (Nov 11–16, 2024)",
+                        "Semi-Finalist - TPI - West Java Province Championship (May 2025)"
+                    ],
+                    notes: [
+                        "• TUDI: Girls' Singles - Under 11 (U-11)",
+                        "• TADI: Girls' Singles - Under 13 (U-13)",
+                        "• GAPI: Girls' Doubles - Under 13 (U-13)",
+                        "• TPI: Girls' Singles - Under 15 (U-15)"
+                    ]
+                }
+            }
+        };
+
+        // Real Dropbox Photo Links with automatic ID/EN support
+        const rawDropboxPhotos = [
+            {
+                url: "https://www.dropbox.com/scl/fi/co4is9kqdt9mdyd5h3c6o/1.jpg?rlkey=rd5axez1jkytlwfhqgrndszz2&raw=1",
+                rank: 1,
+                meta: "MAYOR OF BALIKPAPAN CUP 2022",
+                title: {
+                    id: "Juara 1 Mayor of Balikpapan Cup 2022",
+                    en: "1st Place Mayor of Balikpapan Cup 2022"
+                },
+                desc: {
+                    id: "Faiz meraih medali emas pertamanya di tingkat nasional dalam kategori Tunggal Putra U-11.",
+                    en: "Faiz won his first national gold medal in the Boys' Singles U-11 category."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/hq80qyv8lpx8311l23it1/2.jpg?rlkey=4nt6tk8ew8dnlwxa2bp5ic6ss&raw=1",
+                rank: 2,
+                meta: "BNI SIRKUIT NASIONAL B LOMBOK 2024",
+                title: {
+                    id: "Juara 2 BNI Sirkuit Nasional B Lombok 2024",
+                    en: "2nd Place BNI National Circuit B Lombok 2024"
+                },
+                desc: {
+                    id: "Perjuangan luar biasa meraih medali perak di kategori Ganda Putra U-13.",
+                    en: "An outstanding effort to secure the silver medal in the Boys' Doubles U-13 category."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/idq3fp4wv6v2xfif0z7ne/6.jpg?rlkey=u7mhdwcjamgrmheo2rq125g20&raw=1",
+                rank: 3,
+                meta: "BNI SIRKUIT NASIONAL PREMIER 2024",
+                title: {
+                    id: "Juara 3 BNI Sirkuit Nasional Premier 2024",
+                    en: "3rd Place BNI National Circuit Premier 2024"
+                },
+                desc: {
+                    id: "Meraih medali perunggu di sirkuit nasional premier kategori Tunggal Putra U-13.",
+                    en: "Won the bronze medal in the prestigious national premier circuit in the Boys' Singles U-13 category."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/tltsebpjzh4xh2c4sb563/9-1.jpg?rlkey=j04xkmegkvuayixgupdajqe29&raw=1",
+                rank: 1,
+                meta: "MAYOR OF SEMARANG CUP 2024",
+                title: {
+                    id: "Juara 1 Piala Wali Kota Semarang 2024",
+                    en: "1st Place Mayor of Semarang Cup 2024"
+                },
+                desc: {
+                    id: "Puncak pembuktian latihan keras 11 sesi per minggu dalam kategori Ganda Putra U-13.",
+                    en: "The pinnacle proof of rigorous training 11 sessions a week in the Boys' Doubles U-13 category."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/3y17asawt65vff2zhvqm8/image-1.png?rlkey=ulb4ojrqsz18i0emyzc5uaxdn&raw=1",
+                rank: 1,
+                meta: "PBSI JAKARTA PROVINCE CHAMPIONSHIP",
+                title: {
+                    id: "Juara 1 Kejuaraan Provinsi PBSI DKI Jakarta",
+                    en: "1st Place PBSI Jakarta Province Championship"
+                },
+                desc: {
+                    id: "Menampilkan performa luar biasa dan merebut podium teratas di Jakarta.",
+                    en: "Displayed an incredible performance to capture the top podium in Jakarta."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/wfqqh80w9fpgn7pt62nn9/image-2.png?rlkey=j5d2qizx9cse8i30svj14in4j&raw=1",
+                rank: 2,
+                meta: "FISIP UI OPEN 2024",
+                title: {
+                    id: "Juara 2 FISIP Universitas Indonesia Open 2024",
+                    en: "2nd Place FISIP University of Indonesia Open 2024"
+                },
+                desc: {
+                    id: "Pertandingan ketat di final Tunggal Putra U-13 membawa pulang medali perak.",
+                    en: "Fierce match in the Boys' Singles U-13 finals bringing home the silver medal."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/ybvnxlsltn32rigkn8bd2/image-3.png?rlkey=udm40178nvsu5llu1krmmq4gy&raw=1",
+                rank: 3,
+                meta: "BNI SIRNAS JAMBI 2024",
+                title: {
+                    id: "Juara 3 BNI Sirkuit Nasional B Jambi 2024",
+                    en: "3rd Place BNI National Circuit B Jambi 2024"
+                },
+                desc: {
+                    id: "Meraih podium ketiga setelah perjuangan sengit di babak semifinal Ganda Putra U-13.",
+                    en: "Secured the third podium after a hard-fought battle in the Boys' Doubles U-13 semifinals."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/10lglqzs05fcjatnw0na0/image-4.png?rlkey=wafbdut7hyj8655yi1qipmvlo&raw=1",
+                rank: 1,
+                meta: "BALIKPAPAN OPEN 2022",
+                title: {
+                    id: "Juara 1 Balikpapan Open 2022",
+                    en: "1st Place Balikpapan Open 2022"
+                },
+                desc: {
+                    id: "Dominasi penuh di nomor Tunggal Putra U-11 membawa pulang podium utama.",
+                    en: "Full dominance in the Boys' Singles U-11 category bringing home the main podium."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/xfdtqq05dhhfe2jrd759k/image-5.png?rlkey=95w7v1yrnqm5xqcqh4095y6ol&raw=1",
+                rank: 2,
+                meta: "BNI SIRNAS C BALIKPAPAN 2025",
+                title: {
+                    id: "Juara 2 BNI Sirkuit Nasional C Balikpapan 2025",
+                    en: "2nd Place BNI National Circuit C Balikpapan 2025"
+                },
+                desc: {
+                    id: "Podium perak yang sangat berharga dalam kategori Tunggal Putra U-15.",
+                    en: "Highly valuable silver podium in the Boys' Singles U-15 category."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/ehkvzaz3l1j3iwn0ubvnm/image-6.png?rlkey=5oozh5xxd8fe1w69xtu7ztzkm&raw=1",
+                rank: 3,
+                meta: "BNI SIRNAS MEDAN 2022",
+                title: {
+                    id: "Juara 3 BNI Sirkuit Nasional B Medan 2022",
+                    en: "3rd Place BNI National Circuit B Medan 2022"
+                },
+                desc: {
+                    id: "Membawa pulang perunggu di Medan setelah bertanding penuh determinasi.",
+                    en: "Brought home bronze in Medan after playing with absolute determination."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/j4ypgwygb0olb9gh5zukx/image-7.png?rlkey=rlsjo2fsgl48c40ydkhoo8jij&raw=1",
+                rank: 1,
+                meta: "KEJUARAAN KOTA DEPOK",
+                title: {
+                    id: "Juara 1 Kejuaraan Kota Depok",
+                    en: "1st Place Depok City Championship"
+                },
+                desc: {
+                    id: "Menjadi yang terbaik di turnamen resmi kota kelahiran.",
+                    en: "Became the very best in the official hometown tournament."
+                }
+            },
+            {
+                url: "https://www.dropbox.com/scl/fi/qwsupglxat1zqiq8sfknc/image-8.png?rlkey=6yvv09artww6ffsrqg8g1z68e&raw=1",
+                rank: 2,
+                meta: "WEST JAVA CHAMPIONSHIP 2025",
+                title: {
+                    id: "Juara 2 Kejuaraan Provinsi Jawa Barat 2025",
+                    en: "2nd Place West Java Province Championship 2025"
+                },
+                desc: {
+                    id: "Perak bergengsi setelah bertarung ketat melawan perwakilan klub-klub terbaik Jawa Barat.",
+                    en: "Prestigious silver after a close battle against representatives from West Java's top clubs."
+                }
+            }
+        ];
+
+        // State variables
+        let currentLanguage = 'id'; // Default to Indonesian
+        let currentTheme = 'male';
+        let activeCVPlayer = 'faiz';
+        
+        // Hero Name Alternator
+        const heroNames = ["FAIZ", "RANI"];
+        let heroIndex = 0;
+
+        // Initialize Page
+        window.onload = function() {
+            // Apply initial theme
+            changeTheme('male');
+            
+            // Apply language dictionary
+            applyLanguage(currentLanguage);
+            
+            // Switch to initial active CV
+            loadAndDisplayCV(activeCVPlayer);
+
+            // Render dynamic podium grid photos
+            renderPodiumGrid();
+
+            // Set interval for switching hero name every 5 seconds
+            setInterval(() => {
+                const nameRotateEl = document.getElementById('hero-name-rotate');
+                if (nameRotateEl) {
+                    nameRotateEl.style.opacity = '0';
+                    setTimeout(() => {
+                        heroIndex = (heroIndex + 1) % heroNames.length;
+                        const activeName = heroNames[heroIndex];
+                        nameRotateEl.innerText = activeName;
+                        
+                        if (activeName === "FAIZ") {
+                            nameRotateEl.style.color = '#38bdf8'; // Sky glow
+                            nameRotateEl.style.textShadow = '0 0 15px rgba(56,189,248,0.4)';
+                        } else {
+                            nameRotateEl.style.color = '#f472b6'; // Pink glow
+                            nameRotateEl.style.textShadow = '0 0 15px rgba(244,114,182,0.4)';
+                        }
+                        nameRotateEl.style.opacity = '1';
+                    }, 350);
+                }
+            }, 5000);
+        };
+
+        // Render podium grid cards
+        function renderPodiumGrid() {
+            const gridEl = document.getElementById('dynamic-podium-grid');
+            if (!gridEl) return;
+            gridEl.innerHTML = '';
+
+            rawDropboxPhotos.forEach((photo, idx) => {
+                // Determine rank badges and colors
+                let badgeBg = 'bg-amber-500';
+                let rankText = 'JUARA 1';
+                let glowColor = 'from-amber-500/10';
+                let icon = 'fa-trophy';
+
+                if (photo.rank === 2) {
+                    badgeBg = 'bg-slate-300';
+                    rankText = 'JUARA 2';
+                    glowColor = 'from-slate-300/10';
+                    icon = 'fa-medal';
+                } else if (photo.rank === 3) {
+                    badgeBg = 'bg-amber-700';
+                    rankText = 'JUARA 3';
+                    glowColor = 'from-amber-700/10';
+                    icon = 'fa-award';
+                }
+
+                const card = document.createElement('div');
+                card.className = "relative group overflow-hidden rounded-3xl bg-slate-900 border border-slate-800/80 transition duration-300 hover:shadow-2xl hover:border-theme/30 cursor-zoom-in";
+                card.onclick = () => openLightbox(photo.url, photo.title[currentLanguage], photo.desc[currentLanguage]);
+
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-[4/3] bg-slate-950 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr ${glowColor} to-transparent z-10"></div>
+                        <img src="${photo.url}" alt="${photo.title[currentLanguage]}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105 opacity-85">
+                        <div class="absolute top-4 left-4 z-20 ${badgeBg} text-slate-950 text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1">
+                            <i class="fas ${icon} text-xs"></i> <span>${rankText}</span>
+                        </div>
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center z-20">
+                            <span class="bg-black/60 text-white p-3 rounded-full text-sm"><i class="fas fa-search-plus"></i> Zoom</span>
+                        </div>
+                    </div>
+                    <div class="p-5 bg-slate-900/60 border-t border-slate-800/80">
+                        <p class="text-[9px] font-bold text-amber-500 tracking-widest uppercase mb-1">${photo.meta}</p>
+                        <h4 class="font-bold text-sm text-slate-100 mb-1 leading-tight line-clamp-1">${photo.title[currentLanguage]}</h4>
+                        <p class="text-[11px] text-slate-400 leading-normal line-clamp-2">${photo.desc[currentLanguage]}</p>
+                    </div>
+                `;
+                gridEl.appendChild(card);
+            });
+        }
+
+        // UI Theme Toggle Function
+        function changeTheme(mode) {
+            currentTheme = mode;
+            const root = document.documentElement;
+            const maleBtn = document.getElementById('theme-btn-male');
+            const femaleBtn = document.getElementById('theme-btn-female');
+
+            if (mode === 'male') {
+                root.style.setProperty('--color-theme', '#0284c7');
+                root.style.setProperty('--color-theme-hover', '#0369a1');
+                root.style.setProperty('--color-theme-glow', 'rgba(2, 132, 199, 0.2)');
+                root.style.setProperty('--color-theme-text', '#38bdf8');
+                root.style.setProperty('--color-theme-border', 'rgba(2, 132, 199, 0.3)');
+
+                maleBtn.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 bg-sky-600 text-white shadow-sm";
+                femaleBtn.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 text-slate-400 hover:text-slate-200";
+            } else {
+                root.style.setProperty('--color-theme', '#db2777');
+                root.style.setProperty('--color-theme-hover', '#be185d');
+                root.style.setProperty('--color-theme-glow', 'rgba(219, 39, 119, 0.2)');
+                root.style.setProperty('--color-theme-text', '#f472b6');
+                root.style.setProperty('--color-theme-border', 'rgba(219, 39, 119, 0.3)');
+
+                femaleBtn.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 bg-pink-600 text-white shadow-sm";
+                maleBtn.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold tracking-wider transition-all duration-300 flex items-center space-x-1 text-slate-400 hover:text-slate-200";
+            }
+        }
+
+        // Language Toggle Function (Indonesia & English Only)
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
+            document.getElementById('current-lang-text').innerText = currentLanguage.toUpperCase();
+            applyLanguage(currentLanguage);
+            loadAndDisplayCV(activeCVPlayer);
+            renderPodiumGrid();
+        }
+
+        // Apply selected language translations
+        function applyLanguage(lang) {
+            const dictionary = translations[lang];
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (dictionary[key]) {
+                    element.innerText = dictionary[key];
+                }
+            });
+        }
+
+        // CV Tabs Interaction Function
+        function switchCVTab(player) {
+            activeCVPlayer = player;
+            
+            const faizBtn = document.getElementById('tab-btn-faiz');
+            const raniBtn = document.getElementById('tab-btn-rani');
+            const headerBand = document.getElementById('cv-header-band');
+
+            if (player === 'faiz') {
+                faizBtn.className = "px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-sky-500/50 bg-sky-600 text-white shadow-lg shadow-sky-500/20";
+                raniBtn.className = "px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-slate-700 text-slate-400 hover:text-white hover:border-pink-500/50";
+                headerBand.className = "text-white p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-sky-700 to-sky-950";
+                document.getElementById('cv-badge').className = "bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full";
+            } else {
+                raniBtn.className = "px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-pink-500/50 bg-pink-600 text-white shadow-lg shadow-pink-500/20";
+                faizBtn.className = "px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 border border-slate-700 text-slate-400 hover:text-white hover:border-sky-500/50";
+                headerBand.className = "text-white p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between gap-6 bg-gradient-to-r from-pink-700 to-pink-950";
+                document.getElementById('cv-badge').className = "bg-white/20 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full";
+            }
+
+            loadAndDisplayCV(player);
+        }
+
+        // Display selected player's CV details
+        function loadAndDisplayCV(player) {
+            const data = verifiedCVData[player][currentLanguage];
+            
+            document.getElementById('cv-display-fullname').innerText = data.fullname.toUpperCase();
+            document.getElementById('cv-display-role').innerText = data.role;
+            document.getElementById('cv-display-birth').innerText = data.birth;
+            document.getElementById('cv-display-age').innerText = data.age;
+            document.getElementById('cv-display-nation').innerText = data.nation;
+            document.getElementById('cv-display-height').innerText = data.height;
+            document.getElementById('cv-display-weight').innerText = data.weight;
+            document.getElementById('cv-display-phone').innerText = data.phone;
+            document.getElementById('cv-display-address').innerText = data.address;
+            document.getElementById('cv-display-profile-desc').innerText = data.profileDesc;
+            
+            document.getElementById('cv-display-club').innerText = data.club;
+            document.getElementById('cv-display-duration').innerText = data.duration;
+            document.getElementById('cv-display-schedule').innerText = data.schedule;
+            document.getElementById('cv-display-school').innerText = data.school;
+
+            const cvPhotoEl = document.getElementById('cv-display-photo');
+            const cvPhotoPlaceholderEl = document.getElementById('cv-display-photo-placeholder');
+            
+            if (data.photo && data.photo.trim() !== "") {
+                cvPhotoEl.src = data.photo;
+                cvPhotoEl.classList.remove('hidden');
+                cvPhotoPlaceholderEl.classList.add('hidden');
+            } else {
+                cvPhotoEl.classList.add('hidden');
+                cvPhotoPlaceholderEl.classList.remove('hidden');
+                if (player === 'faiz') {
+                    cvPhotoPlaceholderEl.className = "fas fa-user text-7xl text-sky-200 animate-pulse";
+                } else {
+                    cvPhotoPlaceholderEl.className = "fas fa-user-female text-7xl text-pink-200 animate-pulse";
+                }
+            }
+
+            // Render Achievements
+            const achContainer = document.getElementById('achievements-container');
+            achContainer.innerHTML = '';
+            
+            data.achievements.forEach((ach) => {
+                const item = document.createElement('div');
+                item.className = 'flex items-start space-x-3 bg-slate-50 p-3 rounded-xl border border-slate-100/80';
+                item.innerHTML = `
+                    <div class="bg-amber-100 text-amber-600 p-2 rounded-lg mt-0.5">
+                        <i class="fas fa-medal text-xs"></i>
+                    </div>
+                    <p class="text-slate-800 text-xs font-semibold leading-relaxed mt-1">${ach}</p>
+                `;
+                achContainer.appendChild(item);
+            });
+
+            // Render Notes
+            const notesContainer = document.getElementById('cv-display-notes');
+            notesContainer.innerHTML = '';
+            data.notes.forEach((note) => {
+                const noteDiv = document.createElement('div');
+                noteDiv.innerText = note;
+                notesContainer.appendChild(noteDiv);
+            });
+        }
+
+        // Sleek Lightbox Modal Controls
+        function openLightbox(imgSrc, title, desc) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const titleEl = document.getElementById('lightbox-title');
+            const descEl = document.getElementById('lightbox-desc');
+
+            img.src = imgSrc;
+            titleEl.innerText = title;
+            descEl.innerText = desc;
+
+            modal.classList.remove('pointer-events-none');
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            document.body.style.overflow = ''; 
+        }
+    </script>
+</body>
+</html>
