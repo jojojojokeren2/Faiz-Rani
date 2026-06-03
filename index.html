@@ -71,7 +71,7 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* Smooth state transitions for colors and dark themes */
+        /* Smooth transitions */
         body * {
             transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, opacity 0.3s ease;
         }
@@ -88,7 +88,7 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="font-sport text-2xl tracking-wider leading-none">FAIZ & RANI</span>
-                    <span class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase" data-key="navTagline">Twin Badminton Athletes</span>
+                    <span class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase" data-key="navTagline">Elite Badminton Twins</span>
                 </div>
             </div>
             
@@ -176,8 +176,10 @@
                         <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-sky-950 to-slate-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
                             <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-32 h-32 rounded-full border-4 border-sky-400 overflow-hidden shadow-xl mb-3 bg-slate-855 flex items-center justify-center">
-                                    <img src="https://www.dropbox.com/scl/fi/3o2ht4opqodgd3oxdvwgk/faiz.png?rlkey=3b1swx2osdj46mrmk1kh2smff&st=3p1njqzu&raw=1" alt="Muhammad Faiz Iskandar" class="w-full h-full object-cover">
+                                <!-- Secure Fallback Frame for Faiz -->
+                                <div class="w-32 h-32 rounded-full border-4 border-sky-400 overflow-hidden shadow-xl mb-3 bg-gradient-to-br from-sky-600 to-sky-900 flex items-center justify-center text-white font-sport text-4xl relative select-none">
+                                    <span class="absolute z-0 tracking-wider">FAIZ</span>
+                                    <img src="https://www.dropbox.com/scl/fi/3o2ht4opqodgd3oxdvwgk/faiz.png?rlkey=3b1swx2osdj46mrmk1kh2smff&st=3p1njqzu&raw=1" alt="Muhammad Faiz Iskandar" class="w-full h-full object-cover relative z-10" onerror="this.style.opacity='0';">
                                 </div>
                                 <span class="bg-sky-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">EXIST BADMINTON CLUB</span>
                             </div>
@@ -197,15 +199,17 @@
                     </button>
                 </div>
 
-                <!-- Rani Profile Card with image_f5eed7.jpg -->
+                <!-- Rani Profile Card -->
                 <div class="group relative overflow-hidden rounded-3xl bg-slate-800/40 p-8 border border-slate-800/80 transition duration-300 hover:border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/5 flex flex-col justify-between">
                     <div>
                         <!-- Picture Container -->
                         <div class="relative w-full h-80 rounded-2xl mb-6 overflow-hidden border border-slate-700/50 bg-gradient-to-b from-pink-950 to-slate-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-cover bg-center opacity-45" style="background-image: url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop');"></div>
                             <div class="relative z-10 flex flex-col items-center">
-                                <div class="w-32 h-32 rounded-full border-4 border-pink-400 overflow-hidden shadow-xl mb-3 bg-slate-800 flex items-center justify-center">
-                                    <img src="image_f5eed7.jpg" alt="Maharani Faizah Iskandar" class="w-full h-full object-cover">
+                                <!-- Secure Fallback Frame for Rani (Using image_f5eed7.jpg) -->
+                                <div class="w-32 h-32 rounded-full border-4 border-pink-400 overflow-hidden shadow-xl mb-3 bg-gradient-to-br from-pink-600 to-pink-900 flex items-center justify-center text-white font-sport text-4xl relative select-none">
+                                    <span class="absolute z-0 tracking-wider">RANI</span>
+                                    <img src="image_f5eed7.jpg" alt="Maharani Faizah Iskandar" class="w-full h-full object-cover relative z-10" onerror="this.style.opacity='0';">
                                 </div>
                                 <span class="bg-pink-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">EXIST BADMINTON CLUB</span>
                             </div>
@@ -264,9 +268,10 @@
                     <!-- CV Sidebar -->
                     <div class="md:col-span-1 space-y-8 border-r border-slate-100 pr-0 md:pr-8">
                         <div class="text-center md:text-left">
-                            <div class="relative w-48 h-56 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-gradient-to-tr from-slate-900 to-slate-855 flex items-center justify-center">
-                                <img id="cv-display-photo" class="w-full h-full object-cover hidden" src="" alt="Athlete Profile Photo">
-                                <div id="cv-display-photo-placeholder" class="w-full h-full"></div>
+                            <!-- Robust Photo Fallback for CV -->
+                            <div class="relative w-48 h-56 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-gradient-to-br from-slate-850 to-slate-950 flex items-center justify-center text-white font-sport text-4xl select-none">
+                                <span id="cv-display-avatar-fallback" class="absolute z-0 tracking-wider">FAIZ</span>
+                                <img id="cv-display-photo" class="w-full h-full object-cover relative z-10 hidden" src="" alt="Athlete Profile Photo" onerror="this.style.opacity='0';">
                             </div>
                         </div>
 
@@ -439,7 +444,7 @@
                 navCV: "CV Resmi",
                 navGallery: "Galeri Podium",
                 btnCV: "Buka CV Atlet",
-                heroSubtitle: "INDONESIA JUNIOR ATLET",
+                heroSubtitle: "INDONESIA JUNIOR ATHLETES",
                 heroDesc: "Portofolio digital interaktif atlet bulutangkis kembar kebanggaan keluarga. Menampilkan profil bertanding, foto podium kemenangan di berbagai kejuaraan, serta CV prestasi resmi Muhammad Faiz Iskandar & Maharani Faizah Iskandar.",
                 btnHeroCV: "Lihat CV Prestasi",
                 btnHeroGallery: "Galeri Podium",
@@ -518,7 +523,7 @@
             }
         };
 
-        // Official Sourced CV Data for Faiz & Rani (ID/EN) with direct references
+        // Official Sourced CV Data for Faiz & Rani (ID/EN)
         const verifiedCVData = {
             faiz: {
                 id: {
@@ -670,7 +675,7 @@
             }
         };
 
-        // Sourced Dropbox Championship Photos
+        // Raw Dropbox Photos
         const rawDropboxPhotos = [
             {
                 url: "https://www.dropbox.com/scl/fi/co4is9kqdt9mdyd5h3c6o/1.jpg?rlkey=rd5axez1jkytlwfhqgrndszz2&raw=1",
@@ -829,9 +834,11 @@
                 }
             }
         ];
+    </script>
 
-        // State variables
-        let currentLanguage = 'en'; // English set as the default loading language
+    <script>
+        // State variables (Defaulting to English layout)
+        let currentLanguage = 'en'; 
         let currentTheme = 'male';
         let activeCVPlayer = 'faiz';
         
@@ -954,7 +961,7 @@
             }
         }
 
-        // Language Toggle Function (Indonesia & English Only)
+        // Language Toggle Function
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
             document.getElementById('current-lang-text').innerText = currentLanguage.toUpperCase();
@@ -1004,7 +1011,7 @@
             document.getElementById('cv-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Display selected player's CV details with support for image_f5eed7.jpg
+        // Display selected player's CV details
         function loadAndDisplayCV(player) {
             const data = verifiedCVData[player][currentLanguage];
             
@@ -1025,22 +1032,16 @@
             document.getElementById('cv-display-school').innerText = data.school;
 
             const cvPhotoEl = document.getElementById('cv-display-photo');
-            const placeholderBox = document.getElementById('cv-display-photo-placeholder');
+            const fallbackEl = document.getElementById('cv-display-avatar-fallback');
             
             if (data.photo && data.photo.trim() !== "") {
                 cvPhotoEl.src = data.photo;
+                cvPhotoEl.style.opacity = '1';
                 cvPhotoEl.classList.remove('hidden');
-                placeholderBox.classList.add('hidden');
+                fallbackEl.innerText = player === 'faiz' ? 'FAIZ' : 'RANI';
             } else {
                 cvPhotoEl.classList.add('hidden');
-                placeholderBox.classList.remove('hidden');
-                
-                // Fallback rendering structure for undefined images
-                placeholderBox.innerHTML = `
-                    <div class="w-full h-full bg-[#0f172a] flex items-center justify-center">
-                        <i class="fas fa-user text-7xl text-sky-200 animate-pulse"></i>
-                    </div>
-                `;
+                fallbackEl.innerText = player === 'faiz' ? 'FAIZ' : 'RANI';
             }
 
             // Render Achievements
