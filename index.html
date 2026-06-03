@@ -71,7 +71,7 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* Smooth state transitions */
+        /* Smooth transitions for high quality UX */
         body * {
             transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, opacity 0.3s ease;
         }
@@ -378,11 +378,24 @@
 
     <!-- Podium Gold Moments Section (With Lightbox Zoom) -->
     <section id="podium-gallery" class="py-20 bg-slate-950 text-white border-t border-slate-900 scroll-mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center mb-16 relative">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-8 relative animate-fade-in">
             <span class="text-theme text-xs font-bold tracking-widest uppercase block mb-2 animate-pulse" data-key="gallerySub">PODIUM GALLERY</span>
             <h2 class="text-4xl font-sport mb-4 uppercase tracking-wider" data-key="galleryTitle">CHAMPIONSHIP PODIUM MOMENTS</h2>
             <div class="w-24 h-1 bg-gradient-to-r from-sky-500 to-pink-500 mx-auto rounded-full mb-6"></div>
-            <p class="text-slate-400 max-w-xl mx-auto text-sm mb-8" data-key="galleryDesc">Documentation of dedication and pride when placing on 1st, 2nd, and 3rd podiums across various national badminton championships. (Click photo to enlarge)</p>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm mb-4" data-key="galleryDesc">Documentation of dedication and pride when placing on 1st, 2nd, and 3rd podiums across various national badminton championships.</p>
+        </div>
+
+        <!-- Filter Tabs for Gallery -->
+        <div class="flex justify-center mb-12 space-x-2">
+            <button onclick="filterGallery('all')" id="gallery-filter-all" class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-theme bg-theme text-white">
+                All Photos
+            </button>
+            <button onclick="filterGallery('faiz')" id="gallery-filter-faiz" class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-slate-800 text-slate-400 hover:text-white hover:border-sky-500/50">
+                Faiz
+            </button>
+            <button onclick="filterGallery('rani')" id="gallery-filter-rani" class="px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-slate-800 text-slate-400 hover:text-white hover:border-pink-500/50">
+                Rani
+            </button>
         </div>
 
         <div id="dynamic-podium-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -435,7 +448,7 @@
     </footer>
 
     <script>
-        // Dictionary for Language Translation Support (EN / ID) - Defaults to English
+        // Dictionary for Language Translation Support (EN / ID) - Defaults to English on initial load
         const translations = {
             id: {
                 navTagline: "Atlet Bulutangkis Kembar",
@@ -523,7 +536,7 @@
             }
         };
 
-        // Official Verified CV Data for Faiz & Rani (Bilingual, Rani data sourced directly from image_f60560.png)
+        // Sourced from verified image_f60560.png with profile photo from image_f5eed7.jpg for Rani
         const verifiedCVData = {
             faiz: {
                 id: {
@@ -675,9 +688,10 @@
             }
         };
 
-        // Raw Dropbox Photos
         const rawDropboxPhotos = [
+            // FAIZ'S PODIUM PHOTOS
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/co4is9kqdt9mdyd5h3c6o/1.jpg?rlkey=rd5axez1jkytlwfhqgrndszz2&raw=1",
                 rank: 1,
                 meta: "MAYOR OF BALIKPAPAN CUP 2022",
@@ -691,6 +705,7 @@
                 }
             },
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/hq80qyv8lpx8311l23it1/2.jpg?rlkey=4nt6tk8ew8dnlwxa2bp5ic6ss&raw=1",
                 rank: 2,
                 meta: "BNI SIRKUIT NASIONAL B LOMBOK 2024",
@@ -704,6 +719,7 @@
                 }
             },
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/idq3fp4wv6v2xfif0z7ne/6.jpg?rlkey=u7mhdwcjamgrmheo2rq125g20&raw=1",
                 rank: 3,
                 meta: "BNI SIRKUIT NASIONAL PREMIER 2024",
@@ -717,6 +733,7 @@
                 }
             },
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/tltsebpjzh4xh2c4sb563/9-1.jpg?rlkey=j04xkmegkvuayixgupdajqe29&raw=1",
                 rank: 1,
                 meta: "MAYOR OF SEMARANG CUP 2024",
@@ -730,6 +747,7 @@
                 }
             },
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/3y17asawt65vff2zhvqm8/image-1.png?rlkey=ulb4ojrqsz18i0emyzc5uaxdn&raw=1",
                 rank: 1,
                 meta: "PBSI JAKARTA PROVINCE CHAMPIONSHIP",
@@ -743,6 +761,7 @@
                 }
             },
             {
+                athlete: "faiz",
                 url: "https://www.dropbox.com/scl/fi/wfqqh80w9fpgn7pt62nn9/image-2.png?rlkey=j5d2qizx9cse8i30svj14in4j&raw=1",
                 rank: 2,
                 meta: "FISIP UI OPEN 2024",
@@ -755,112 +774,192 @@
                     en: "Fierce match in the Boys' Singles U-13 finals bringing home the silver medal."
                 }
             },
+            // RANI'S GENUINE PODIUM PHOTOS (Sourced Directly from dropbox links)
             {
-                url: "https://www.dropbox.com/scl/fi/ybvnxlsltn32rigkn8bd2/image-3.png?rlkey=udm40178nvsu5llu1krmmq4gy&raw=1",
-                rank: 3,
-                meta: "BNI SIRNAS JAMBI 2024",
-                title: {
-                    id: "Juara 3 BNI Sirkuit Nasional B Jambi 2024",
-                    en: "3rd Place BNI National Circuit B Jambi 2024"
-                },
-                desc: {
-                    id: "Meraih podium ketiga setelah perjuangan sengit di babak semifinal Ganda Putra U-13.",
-                    en: "Secured the third podium after a hard-fought battle in the Boys' Doubles U-13 semifinals."
-                }
-            },
-            {
-                url: "https://www.dropbox.com/scl/fi/10lglqzs05fcjatnw0na0/image-4.png?rlkey=wafbdut7hyj8655yi1qipmvlo&raw=1",
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/2ukp1j0mb0bw1v9v9u7ex/1.-1st-Pegadaian-2022.jpeg?rlkey=u49lwb1v5yegvuwqd7lww1c9k&st=kgz3zfof&raw=1",
                 rank: 1,
-                meta: "BALIKPAPAN OPEN 2022",
+                meta: "PEGADAIAN OPEN 2022",
                 title: {
-                    id: "Juara 1 Balikpapan Open 2022",
-                    en: "1st Place Balikpapan Open 2022"
+                    id: "Juara 1 TUDI - Piala Wali Kota Balikpapan & Pegadaian Open",
+                    en: "1st Place TUDI - Balikpapan Cup & Pegadaian Open"
                 },
                 desc: {
-                    id: "Dominasi penuh di nomor Tunggal Putra U-11 membawa pulang podium utama.",
-                    en: "Full dominance in the Boys' Singles U-11 category bringing home the main podium."
+                    id: "Kemenangan medali emas gemilang Rani di turnamen terbuka nasional Tunggal Putri U-11.",
+                    en: "Rani's outstanding gold medal performance in the Girls' Singles Under-11 national tour."
                 }
             },
             {
-                url: "https://www.dropbox.com/scl/fi/xfdtqq05dhhfe2jrd759k/image-5.png?rlkey=95w7v1yrnqm5xqcqh4095y6ol&raw=1",
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/mj8l9io1dqirhapvilnuh/2.-2nd-TUDI-Sornas-Medan-2022.jpeg?rlkey=foqlp51r2atn534w3cdl6p1g0&st=ob4wxxza&raw=1",
                 rank: 2,
-                meta: "BNI SIRNAS C BALIKPAPAN 2025",
+                meta: "SIRNAS B MEDAN 2022",
                 title: {
-                    id: "Juara 2 BNI Sirkuit Nasional C Balikpapan 2025",
-                    en: "2nd Place BNI National Circuit C Balikpapan 2025"
+                    id: "Juara 2 TUDI - BNI Sirkuit Nasional B Medan",
+                    en: "2nd Place TUDI - BNI National Circuit B Medan"
                 },
                 desc: {
-                    id: "Podium perak yang sangat berharga dalam kategori Tunggal Putra U-15.",
-                    en: "Highly valuable silver podium in the Boys' Singles U-15 category."
+                    id: "Meraih medali perak di sirkuit nasional bergengsi kategori Tunggal Putri U-11 di Medan.",
+                    en: "Secured a superb silver medal finish in the competitive Girls' Singles U-11 tournament in Medan."
                 }
             },
             {
-                url: "https://www.dropbox.com/scl/fi/ehkvzaz3l1j3iwn0ubvnm/image-6.png?rlkey=5oozh5xxd8fe1w69xtu7ztzkm&raw=1",
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/hzbrtz9l90jp01h8zvqcp/2.-2nd-TUDI-Sornas-Medan-2022-dwi.jpeg?rlkey=pefgvmof4w4avsgkpotzf4skr&st=uo05vmpo&raw=1",
+                rank: 2,
+                meta: "SIRNAS B MEDAN 2022 (ALT)",
+                title: {
+                    id: "Runner-Up TUDI - Sirkuit Nasional Medan",
+                    en: "Runner-Up TUDI - National Circuit Medan"
+                },
+                desc: {
+                    id: "Sudut alternatif perayaan podium Rani menerima trofi juara kedua nasional di Medan.",
+                    en: "Alternative perspective of Rani on the podium proudly receiving her national runner-up trophy."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/i6n9wpsu9lo3se11eg72l/3.-3rd-TAPI-Gub-Jatim-2024.jpeg?rlkey=ywmts10fze5f1e5m373vjzkp3&st=p18of0pl&raw=1",
                 rank: 3,
-                meta: "BNI SIRNAS MEDAN 2022",
+                meta: "PIALA GUBERNUR JATIM 2024",
                 title: {
-                    id: "Juara 3 BNI Sirkuit Nasional B Medan 2022",
-                    en: "3rd Place BNI National Circuit B Medan 2022"
+                    id: "Juara 3 TAPI - Piala Gubernur Jawa Timur",
+                    en: "3rd Place TAPI - East Java Governor's Cup"
                 },
                 desc: {
-                    id: "Membawa pulang perunggu di Medan setelah bertanding penuh determinasi.",
-                    en: "Brought home bronze in Medan after playing with absolute determination."
+                    id: "Membawa pulang medali perunggu setelah bersaing ketat di kategori Tunggal Putri U-13.",
+                    en: "Earned the bronze medal in Surabaya after intense matches in the Girls' Singles U-13 category."
                 }
             },
             {
-                url: "https://www.dropbox.com/scl/fi/j4ypgwygb0olb9gh5zukx/image-7.png?rlkey=rlsjo2fsgl48c40ydkhoo8jij&raw=1",
-                rank: 1,
-                meta: "KEJUARAAN KOTA DEPOK",
-                title: {
-                    id: "Juara 1 Kejuaraan Kota Depok",
-                    en: "1st Place Depok City Championship"
-                },
-                desc: {
-                    id: "Menjadi yang terbaik di turnamen resmi kota kelahiran.",
-                    en: "Became the very best in the official hometown tournament."
-                }
-            },
-            {
-                url: "https://www.dropbox.com/scl/fi/qwsupglxat1zqiq8sfknc/image-8.png?rlkey=6yvv09artww6ffsrqg8g1z68e&raw=1",
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/e5vzurjkvhdalhfd45ul4/4.-2nd-GAPI-Sornas-Lombok-2024.jpeg?rlkey=pagb1ojd3foiwfhu1nqcikj42&st=gyywfi24&raw=1",
                 rank: 2,
-                meta: "WEST JAVA CHAMPIONSHIP 2025",
+                meta: "SIRNAS B LOMBOK 2024",
                 title: {
-                    id: "Juara 2 Kejuaraan Provinsi Jawa Barat 2025",
-                    en: "2nd Place West Java Province Championship 2025"
+                    id: "Juara 2 GAPI - BNI Sirkuit Nasional B Lombok",
+                    en: "2nd Place GAPI - BNI National Circuit B Lombok"
                 },
                 desc: {
-                    id: "Perak bergengsi setelah bertarung ketat melawan perwakilan klub-klub terbaik Jawa Barat.",
-                    en: "Prestigious silver after a close battle against representatives from West Java's top clubs."
+                    id: "Kerja sama taktis ganda putri membuahkan medali perak berharga di NTB.",
+                    en: "Excellent tactical performance yielding a brilliant silver medal on the island of Lombok."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/gepa6lbetjtcmxt3h40br/5.-1st-GAPI-Kejurprov-2024.jpeg?rlkey=x4r3jp3jlbenp09izxdg9o0zt&st=mt24muzl&raw=1",
+                rank: 1,
+                meta: "KEJURPROV DKI JAKARTA 2024",
+                title: {
+                    id: "Juara 1 GAPI - Kejuaraan Provinsi PBSI DKI Jakarta",
+                    en: "1st Place GAPI - PBSI Jakarta Province Championship"
+                },
+                desc: {
+                    id: "Menampilkan sinergi pertahanan tak terkalahkan untuk menyabet mahkota provinsi DKI Jakarta.",
+                    en: "Displayed superb on-court synergy to capture the regional championship doubles gold."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/bsb4gqfdq3pq0x7xfa0cw/6.-1st-TAPI-Kejurprov-2024.jpeg?rlkey=2akm911q53ibunr8quxol26ph&st=bymmi2wj&raw=1",
+                rank: 1,
+                meta: "KEJURPROV DKI JAKARTA 2024 (SINGLES)",
+                title: {
+                    id: "Juara 1 TAPI - Kejuaraan Provinsi PBSI DKI Jakarta",
+                    en: "1st Place TAPI - PBSI Jakarta Province Championship"
+                },
+                desc: {
+                    id: "Mengunci medali emas kategori Tunggal Putri U-13 lewat pertarungan final sengit.",
+                    en: "Clinched the singles crown in the Girls' Singles U-13 division after a fierce final match."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/57tqfgu84mh1k70axyy41/7.-1st-Gapi-Sirnas-Premier-2024.jpeg?rlkey=fux0qoat4vwy7z0ulw50g4zrr&st=pnp4bexz&raw=1",
+                rank: 1,
+                meta: "SIRNAS PREMIER 2024",
+                title: {
+                    id: "Juara 1 GAPI - BNI Sirkuit Nasional Premier",
+                    en: "1st Place GAPI - BNI National Circuit Premier"
+                },
+                desc: {
+                    id: "Mengungguli pasangan-pasangan elite nasional di kompetisi premier bulutangkis junior.",
+                    en: "Outperformed elite junior pairings to capture the highest premier circuit gold medal."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/8vkpd0xuqpn6iozlxp2rd/8.-3rd-Fisip-UI-Open-2025.jpeg?rlkey=om0akoygfakefni4ca70mpi23&st=vzgbimug&raw=1",
+                rank: 3,
+                meta: "FISIP UI OPEN 2025",
+                title: {
+                    id: "Juara 3 TAPI - FISIP Universitas Indonesia Open",
+                    en: "3rd Place TAPI - FISIP University of Indonesia Open"
+                },
+                desc: {
+                    id: "Konsistensi performa luar biasa membawa pulang medali perunggu di Depok.",
+                    en: "Consistent display of high-level badminton securing a podium third-place in West Java."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/jhhj0ecw0wgas069ahssa/10.-1st-Superliga.jpeg?rlkey=66g2z36lo4aolzas1uza7u6sl&st=mdj9shvh&raw=1",
+                rank: 1,
+                meta: "POLYTRON SUPERLIGA JUNIOR 2025",
+                title: {
+                    id: "Juara 1 - Exist U15 Girls Team - Polytron Superliga Kudus",
+                    en: "1st Place - Exist U15 Girls Team - Polytron Superliga Kudus"
+                },
+                desc: {
+                    id: "Berkontribusi penuh menyabet mahkota beregu putri tingkat nasional di Kudus.",
+                    en: "Contributed immensely to leading the Exist squad to win the national team championship."
+                }
+            },
+            {
+                athlete: "rani",
+                url: "https://www.dropbox.com/scl/fi/8xg96p30vuotss9vryw7o/11.-3rd-Sirnas-B-Samarinda.jpeg?rlkey=busuxm7lanhsnr324eylgmdff&st=rgtwvzq4&raw=1",
+                rank: 3,
+                meta: "SIRNAS B SAMARINDA 2026",
+                title: {
+                    id: "Juara 3 TPI - BNI Sirkuit Nasional B Samarinda",
+                    en: "3rd Place TPI - BNI National Circuit B Samarinda"
+                },
+                desc: {
+                    id: "Mengamankan medali perunggu setelah rangkaian laga tunggal berintensitas tinggi di Kaltim.",
+                    en: "Secured a bronze medal finish following a competitive campaign in East Kalimantan."
                 }
             }
         ];
     </script>
 
     <script>
-        // State variables (Defaulting to FULL ENGLISH on initial load)
+        // Default Settings (Set default to ENGLISH 'en')
         let currentLanguage = 'en'; 
         let currentTheme = 'male';
         let activeCVPlayer = 'faiz';
+        let activeGalleryFilter = 'all';
         
-        // Hero Name Alternator
+        // Hero Alternating Logic
         const heroNames = ["FAIZ", "RANI"];
         let heroIndex = 0;
 
-        // Initialize Page
         window.onload = function() {
-            // Apply initial theme
+            // Setup default theme
             changeTheme('male');
             
-            // Apply default English language dictionary on load
+            // Switch lang button display text
+            document.getElementById('current-lang-text').innerText = currentLanguage.toUpperCase();
+            
+            // Apply language dictionary values on load
             applyLanguage(currentLanguage);
             
-            // Switch to initial active CV
+            // Initialize with Faiz's interactive CV sheet
             loadAndDisplayCV(activeCVPlayer);
 
-            // Render dynamic podium grid photos
+            // Render filterable podium gallery grid
             renderPodiumGrid();
 
-            // Set interval for switching hero name every 5 seconds
+            // Setup automated hero title rotation every 5 seconds
             setInterval(() => {
                 const nameRotateEl = document.getElementById('hero-name-rotate');
                 if (nameRotateEl) {
@@ -871,10 +970,10 @@
                         nameRotateEl.innerText = activeName;
                         
                         if (activeName === "FAIZ") {
-                            nameRotateEl.style.color = '#38bdf8'; // Sky blue glow
+                            nameRotateEl.style.color = '#38bdf8'; // Sky blue
                             nameRotateEl.style.textShadow = '0 0 15px rgba(56,189,248,0.4)';
                         } else {
-                            nameRotateEl.style.color = '#f472b6'; // Pink glow
+                            nameRotateEl.style.color = '#f472b6'; // Premium pink
                             nameRotateEl.style.textShadow = '0 0 15px rgba(244,114,182,0.4)';
                         }
                         nameRotateEl.style.opacity = '1';
@@ -883,14 +982,20 @@
             }, 5000);
         };
 
-        // Render podium grid cards
+        // Render filtered elements from rawDropboxPhotos dataset
         function renderPodiumGrid() {
             const gridEl = document.getElementById('dynamic-podium-grid');
             if (!gridEl) return;
             gridEl.innerHTML = '';
 
-            rawDropboxPhotos.forEach((photo, idx) => {
-                // Determine rank badges and colors
+            // Filter photos list based on selection
+            const filteredPhotos = rawDropboxPhotos.filter(photo => {
+                if (activeGalleryFilter === 'all') return true;
+                return photo.athlete === activeGalleryFilter;
+            });
+
+            filteredPhotos.forEach((photo, idx) => {
+                // Determine layout indicators based on rank placement
                 let badgeBg = 'bg-amber-500';
                 let rankText = currentLanguage === 'id' ? 'JUARA 1' : '1ST PLACE';
                 let glowColor = 'from-amber-500/10';
@@ -920,11 +1025,14 @@
                             <i class="fas ${icon} text-xs"></i> <span>${rankText}</span>
                         </div>
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center z-20">
-                            <span class="bg-black/60 text-white p-3 rounded-full text-sm"><i class="fas fa-search-plus"></i> Zoom</span>
+                            <span class="bg-black/60 text-white p-3 rounded-full text-sm font-bold"><i class="fas fa-search-plus mr-1"></i> Zoom</span>
                         </div>
                     </div>
                     <div class="p-5 bg-slate-900/60 border-t border-slate-800/80">
-                        <p class="text-[9px] font-bold text-amber-500 tracking-widest uppercase mb-1">${photo.meta}</p>
+                        <div class="flex items-center justify-between mb-1">
+                            <p class="text-[9px] font-bold text-amber-500 tracking-widest uppercase">${photo.meta}</p>
+                            <span class="text-[8px] bg-slate-800 text-slate-400 font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider">${photo.athlete}</span>
+                        </div>
                         <h4 class="font-bold text-sm text-slate-100 mb-1 leading-tight line-clamp-1">${photo.title[currentLanguage]}</h4>
                         <p class="text-[11px] text-slate-400 leading-normal line-clamp-2">${photo.desc[currentLanguage]}</p>
                     </div>
@@ -933,7 +1041,33 @@
             });
         }
 
-        // UI Theme Toggle Function
+        // Apply visual button updates when filtering the podium gallery
+        function filterGallery(category) {
+            activeGalleryFilter = category;
+            
+            // Set styles of filter tabs
+            const btnAll = document.getElementById('gallery-filter-all');
+            const btnFaiz = document.getElementById('gallery-filter-faiz');
+            const btnRani = document.getElementById('gallery-filter-rani');
+
+            // Reset classes
+            const baseInactive = "px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-slate-800 text-slate-400 hover:text-white hover:border-theme/50 bg-transparent";
+            btnAll.className = baseInactive;
+            btnFaiz.className = baseInactive;
+            btnRani.className = baseInactive;
+
+            if (category === 'all') {
+                btnAll.className = "px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-theme bg-theme text-white";
+            } else if (category === 'faiz') {
+                btnFaiz.className = "px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-sky-500 bg-sky-600 text-white";
+            } else if (category === 'rani') {
+                btnRani.className = "px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 border border-pink-500 bg-pink-600 text-white";
+            }
+
+            renderPodiumGrid();
+        }
+
+        // Global Theme Custom Styling Toggles
         function changeTheme(mode) {
             currentTheme = mode;
             const root = document.documentElement;
@@ -961,7 +1095,7 @@
             }
         }
 
-        // Language Toggle Function
+        // Language Toggle Action (English default support with switch option)
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
             document.getElementById('current-lang-text').innerText = currentLanguage.toUpperCase();
@@ -970,7 +1104,7 @@
             renderPodiumGrid();
         }
 
-        // Apply selected language translations
+        // Apply chosen translations directly onto nodes
         function applyLanguage(lang) {
             const dictionary = translations[lang];
             const elements = document.querySelectorAll('[data-key]');
@@ -982,7 +1116,7 @@
             });
         }
 
-        // CV Tabs Interaction Function
+        // CV tab selection handler
         function switchCVTab(player) {
             activeCVPlayer = player;
             
@@ -1005,13 +1139,13 @@
             loadAndDisplayCV(player);
         }
 
-        // Trigger opening specific player CV
+        // Navigation trigger to open athlete CV sheets
         function openPlayerCV(player) {
             switchCVTab(player);
             document.getElementById('cv-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Display selected player's CV details
+        // Populate display fields for CV from dataset
         function loadAndDisplayCV(player) {
             const data = verifiedCVData[player][currentLanguage];
             
@@ -1034,7 +1168,6 @@
             const cvPhotoEl = document.getElementById('cv-display-photo');
             const fallbackEl = document.getElementById('cv-display-avatar-fallback');
             
-            // Safe rendering handler for image files (Faiz Dropbox / Rani Dropbox Edited)
             if (data.photo && data.photo.trim() !== "") {
                 cvPhotoEl.src = data.photo;
                 cvPhotoEl.style.opacity = '1';
@@ -1045,7 +1178,7 @@
                 fallbackEl.innerText = player === 'faiz' ? 'FAIZ' : 'RANI';
             }
 
-            // Render Achievements
+            // Render Achievements list
             const achContainer = document.getElementById('achievements-container');
             achContainer.innerHTML = '';
             
@@ -1066,13 +1199,13 @@
             notesContainer.innerHTML = '';
             data.notes.forEach((note) => {
                 const noteDiv = document.createElement('div');
-                noteDiv.className = "bg-slate-100/40 p-2 rounded-lg border border-slate-200/50 text-slate-700 text-center";
+                noteDiv.className = "bg-slate-100/40 p-2 rounded-lg border border-slate-200/50 text-slate-700 text-center text-[10px] font-bold";
                 noteDiv.innerText = note;
                 notesContainer.appendChild(noteDiv);
             });
         }
 
-        // Sleek Lightbox Modal Controls
+        // Lightbox modal operations
         function openLightbox(imgSrc, title, desc) {
             const modal = document.getElementById('lightbox-modal');
             const img = document.getElementById('lightbox-img');
